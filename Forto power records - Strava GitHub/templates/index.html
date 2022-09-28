@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %} 
+   <div class="container mt-5">
+      <div class="shadow" style="border: 2px;">
+        <object class="card-img-top" data="static/strava.svg" width="250" height="300"> </object>
+
+        <div class="text-center">
+          <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="display-4">Connect</h1>
+            <p class="lead">Autenticate use with https://www.strava.com/</p>
+          </div>
+          <form method="post" action="/">
+          {% if session['access_token'] %}
+          <div class="form-group col-md-3 mx-auto">
+            <a href="/clearsession" class="btn btn-primary" style="background-color: #fc5200;color:white;border: #fc5200;">Unsubscribe to Strava</a>
+            <br>
+            <a href="/home" class="btn btn-primary" style="background-color: #00f7ff;border: #00f7ff;">Go to Home</a>
+          </div>
+          {% else %}
+            <div class="form-group col-md-3 mx-auto">
+              <button type="submit" class="btn btn-primary" style="background-color: #fc5200;color:white;border: #fc5200;">Connect to Strava</button>
+              </div>
+            {% endif %}
+        </form>
+        <br>
+        </div>
+         </div>
+      </div>
+{% endblock %}

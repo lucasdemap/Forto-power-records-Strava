@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Semi+Condensed:100,200,300,400" rel="stylesheet">
+</head>
+<body class="loading">
+    <h1>{{ error_status }}</h1>
+    <h2>{{ error_message }} <b>:(</b>
+       <br>
+        <a href="/" style="text-align:center;">Back to page...</a>
+    </h2>
+    
+    <div class="gears">
+      <div class="gear one">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="gear two">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+      <div class="gear three">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script>
+        $(function() {
+        setTimeout(function(){
+        $('body').removeClass('loading');
+        }, 1000);
+    });
+    </script>
+  </body>
+</html>

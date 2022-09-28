@@ -1,0 +1,93 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if all_activities %}
+<div class="container mt-5">
+  <h1 class="text-center"> All Activities </h1>
+  <div class="row">
+      <div class="table-responsive">
+          <table class="table">
+              <thead class="thead-light">
+                <tr style="background-color:rgb(1, 219, 219)">
+                  <th scope="col">Sr. No.</th>
+                  <th scope="col">ID</th>
+                  <th scope="col">NAME</th>
+                  <th scope="col">Distance</th>
+                  <th scope="col">Start Date</th>
+                  <th scope="col">Max Watts</th>
+                  <th scope="col">Max Speed</th>
+                </tr>
+               </thead>
+              <tbody>
+              {% for i in all_activities %}
+              <tr>
+                  <th scope="row">{{loop.index}}</th>
+                  <td><a href="/activity/{{ i.id }}" style="text-decoration: none;">{{ i.id }}</a></td>
+                  <td>{{ i.name }}</td>
+                  <td>{{ i.distance }}</td>
+                  <td>{{ i.start_date }}</td>
+                  <td>{{ i.max_watts }}</td>
+                  <td>{{ i.max_speed }}</td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+
+      </div>
+  </div>
+  <a href="/" style="text-align:center;">Back to page...</a>
+  <br>
+  <h4>Response Keys</h4>
+  <hr class="text-muted">
+  <p>Showing you the sample keys existing in response If you want that into the table I'll do that for you.</p>
+  <code>  {{ all_activities.0.keys() }} </code>
+</div>
+
+
+{% else %}
+<div class="container mt-5">
+  <h1 class="text-center"> {{ activity.id }} Activities </h1>
+  <div class="row">
+    <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr style="background-color:rgb(1, 219, 219)">
+              <th scope="col">Sr. No.</th>
+              <th scope="col">ID</th>
+              <th scope="col">NAME</th>
+              <th scope="col">Distance</th>
+              <th scope="col">Start Date</th>
+              <th scope="col">Max Watts</th>
+              <th scope="col">Max Speed</th>
+              <th scope="col">Description</th>
+            </tr>
+           </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1.</th>
+              <td>{{ activity.id }}</td>
+              <td>{{ activity.name }}</td>
+              <td>{{ activity.distance }}</td>
+              <td>{{ activity.start_date }}</td>
+              <td>{{ activity.max_watts }}</td>
+              <td>{{ activity.max_speed }}</td>
+              <td>
+                <ol>
+                  {% for item in activity.description.split('cycling') %}
+                  {% if  item %}
+                  <li>{{ item }} cycling</li> 
+                  {% endif %}
+                {% endfor %}
+                </ol>
+                </td>
+            </tr>
+          </tbody>
+      </table>
+      </div>
+
+    </div>
+    <a href="/home" style="text-align:center;">Back to page...</a>
+    </div>
+
+
+{% endif %}
+{% endblock %}
