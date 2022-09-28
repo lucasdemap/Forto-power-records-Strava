@@ -7,3 +7,5 @@ Uses the Strava API to automatically display the best power values for that acti
 -⚡by Forto cycling
 
 Signing up: https://fortocycling.nl/strava-power-records/
+
+When a user is authenticated the Strava API will use a webhook to listen for new activities.
